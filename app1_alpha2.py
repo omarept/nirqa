@@ -44,7 +44,7 @@ def print_output(dyct_input):
         i=0
         while i <  len(v):
             print("{:^20}{:^20}{:^20}{:^20}".format(k, v[i][1], v[i][0], v[i][2]))
-            i = i+1 
+            i += 1 
     print('-'*80)
     return
 
@@ -80,3 +80,4 @@ dyct_output['R3'] = neighbors_routers(lldp_neighbors3)
 dyct_output['NX1'] = neighbors_routers(lldp_neighbors4)
 
 print_output(dyct_output)
+
