@@ -4,12 +4,18 @@ from netmiko import Netmiko
 
 
 def get_output(device_id, send_command):
+    '''This function connect to a device run
+        a command and return the output
+    '''
     net_conn = Netmiko(**device_id)
     output = net_conn.send_command(send_command)
     return output
 
 
 def get_lldp_neighbors(input_cmd):
+    '''This function receive the output command
+        and return the relevant information.
+    '''
     parser = input_cmd.split('\n')
     parser_no_blanks = list(filter(None, parser))
     lldp_neighbors_no_headers = parser_no_blanks[4:len(parser_no_blanks)-1]
@@ -46,9 +52,8 @@ def print_output(dyct_input):
 
 
 with open('devices.txt') as f:
-        devices = f.read()
-
-list_devices = devices.split()
+    devices = f.read()
+    list_devices = devices.split()
 
 dyct={}
 dyct_output={}
